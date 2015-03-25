@@ -10,13 +10,30 @@ app.get('/', function(request, response) {
     fs.readFile('index.html', function (error, data) {
         response.send(data.toString());
 
-        
+
     });
 });
 
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'));
 });
+
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'http://kpig7.synology.me:3306',
+  user     : 'admin',
+  password : 'admin!'
+});
+ 
+connection.connect();
+ 
+connection.query('SHOW DATABASES', function(err, rows, fields) {
+  if (err) throw err;
+ 
+  console.log('The solution is: ', rows[0].solution);
+});
+ 
+connection.end();
 
 
 // var c = new Client();
