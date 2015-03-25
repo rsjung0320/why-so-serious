@@ -50,9 +50,10 @@ var app = express();
 
 // // 라우트를 수행합니다.
 app.get('/', function (request, response, next) {
-    fs.readFile('index.html', function (error, data) {
-        response.send(data.toString());
-    });
+	response.send('연동 테스트 !! 좀 되라~!!');
+    // fs.readFile('index.html', function (error, data) {
+    //     response.send(data.toString());
+    // });
 });
 
 app.get('/seats', function (request, response, next) {
