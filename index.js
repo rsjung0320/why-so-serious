@@ -4,9 +4,9 @@
 // app.set('port', (process.env.PORT || 5000));
 // app.use(express.static(__dirname + '/public'));
 
-// app.get('/', function(request, response) {
-//   response.send('MJ_____Hello World!   123123123');
-// });
+// // app.get('/', function(request, response) {
+// //   response.send('MJ_____Hello World!   123123123');
+// // });
 
 // app.listen(app.get('port'), function() {
 //   console.log("Node app is running at localhost:" + app.get('port'));
@@ -39,9 +39,16 @@ var seats = [
 var app = express();
 
 // 미들웨어를 설정합니다.
-app.use(app.router);
+// app.use(app.router);
 
-// 라우트를 수행합니다.
+// app.set('port', (process.env.PORT || 5000));
+// // // app.use(express.static(__dirname + '/public'));
+
+// var server = app.listen(app.get('port'), function() {
+//   console.log("Node app is running at localhost:" + app.get('port'));
+// });
+
+// // 라우트를 수행합니다.
 app.get('/', function (request, response, next) {
     fs.readFile('index.html', function (error, data) {
         response.send(data.toString());
@@ -52,7 +59,7 @@ app.get('/seats', function (request, response, next) {
     response.send(seats);
 });
 
-// 웹 서버를 실행합니다.
+// // 웹 서버를 실행합니다.
 var server = http.createServer(app)
 server.listen(5000, function () {
     console.log('Server Running at http://127.0.0.1:52273');
