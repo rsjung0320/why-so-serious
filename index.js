@@ -10,7 +10,16 @@ app.get('/', function(request, response) {
     fs.readFile('index.html', function (error, data) {
         response.send(data.toString());
 
-        var c = new Client();
+        
+    });
+});
+
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'));
+});
+
+
+var c = new Client();
 
 		c.connect({
 		  host: 'http://kpig7.synology.me:3306',
@@ -45,15 +54,6 @@ app.get('/', function(request, response) {
 		 });
 
 		c.end();
-    });
-});
-
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'));
-});
-
-
-
 
 // 모듈을 추출합니다.
 // var socketio = require('socket.io');
