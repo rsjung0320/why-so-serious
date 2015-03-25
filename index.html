@@ -53,7 +53,7 @@
                     $.each(line, function (indexX, seat) {
                         // 문서 객체를 생성하고 변수 $line에 추가합니다.
                         var $output = $('<div></div>', {
-                            'class': 'seat',
+                            'addClasss': 'seat',
                             'data-x': indexX,
                             'data-y': indexY
                         }).appendTo($line);
